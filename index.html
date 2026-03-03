@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/EK%20DUSHMAN/Desktop/Sadhana%20mam-site/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Memory Portal</title>
+
+<link href="./index_files/css2" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(to bottom,#0f0f1a,#1a1a2e);
+color:white;
+overflow:hidden;
+}
+
+/* Opening Screen */
+#intro{
+position:fixed;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#1a1a2e,#0f0f1a);
+z-index:10;
+text-align:center;
+}
+
+#intro h1{
+font-family:Great Vibes;
+font-size:60px;
+color:#ff69b4;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:40px;
+background:#ff69b4;
+color:white;
+font-size:17px;
+cursor:pointer;
+margin-top:20px;
+}
+
+/* Main */
+.container{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+width:70%;
+background:rgba(255,255,255,0.07);
+backdrop-filter:blur(12px);
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 50px rgba(255,105,180,0.3);
+}
+
+img{
+width:230px;
+border-radius:18px;
+margin-bottom:20px;
+}
+
+h2{
+font-family:Playfair Display;
+color:#ffb6e6;
+}
+
+#message{
+margin-top:20px;
+white-space:pre-line;
+min-height:220px;
+}
+
+.revealBtn{
+margin-top:20px;
+background:#ffffff20;
+border:1px solid white;
+}
+
+/* Effects */
+.petal{
+position:fixed;
+top:-10px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<h1>A Memory Before Class 7</h1>
+<p>Created with gratitude by Trisha</p>
+<button onclick="enterSite()">Open My Gratitude</button>
+</div>
+
+<div class="container" id="main">
+<div class="card">
+
+<img src="./index_files/1771949862934-658776d6-5bea-41c3-8b1a-26c1b1d7778d.jpeg">
+
+<h2>Sadhana Ma’am</h2>
+
+<button class="revealBtn" onclick="showMessage()">
+Read My Message
+</button>
+
+<div id="message"></div>
+
+</div>
+</div>
+
+<audio id="music" loop="">
+<source src="https://image2url.com/r2/default/audio/1771949975822-a0af14cd-4476-402e-9b6c-547763d01ce3.mp3">
+</audio>
+
+<script>
+
+function enterSite(){
+document.getElementById("intro").style.display="none";
+document.getElementById("main").style.display="flex";
+startEffects();
+}
+
+/* Type message */
+let text=`Dear Ma’am,
+
+As I complete Class 6, I want to sincerely thank you for guiding our class throughout the year. Being our class teacher is not just a role — it is responsibility, patience, and leadership, and you carried it every day.
+
+This classroom journey shaped my discipline, awareness, and growth in many ways.
+
+Even as I move toward Class 7, the lessons learned under your guidance will always remain with me.
+
+This website is my small tribute as I sign off from Class 6 with respect and gratitude.
+
+Some teachers teach lessons.
+Some teachers teach life.
+
+Thank you for being part of my Class 6 journey.
+
+— Trisha`;
+let i=0;
+
+function showMessage(){
+document.getElementById("music").play();
+if(i===0){
+typeWriter();
+}
+}
+
+function typeWriter(){
+if(i<text.length){
+document.getElementById("message").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typeWriter,25);
+}
+}
+
+/* Petals */
+function startEffects(){
+for(let i=0;i<30;i++){
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML="🌸";
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(p);
+}
+}
+
+</script>
+
+
+</body></html>
